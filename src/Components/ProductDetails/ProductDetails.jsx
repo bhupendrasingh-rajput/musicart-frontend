@@ -40,7 +40,7 @@ const ProductDetails = ({ isAuthenticated, setIsAuthenticated, mobileView }) => 
 
     useEffect(() => {
         getProduct(productId);
-    }, [])
+    }, [dispatch])
     return (
         <div className={style.mainContainer}>
             {!mobileView && <BrandHeader isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} productName={product?.name} />}

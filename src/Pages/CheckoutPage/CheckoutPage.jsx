@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer'
-import BrandHeader from '../../Components/BrandHeader/BrandHeader';
 import Checkout from '../../Components/Checkout/Checkout';
-import MobileHeader from '../../Components/Header/MobileHeader';
 import MobileFooter from '../../Components/Footer/MobileFooter';
-import { useLocation } from 'react-router-dom';
+
 
 
 const CheckoutPage = () => {
