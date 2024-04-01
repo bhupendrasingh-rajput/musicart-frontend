@@ -77,7 +77,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                 <div>
                     <p>Grab upto 50% off on</p>
                     <p>Selected headphones</p>
-                    {mobileView && <button>Buy Now</button>}
+                    {mobileView && <button onClick={() => navigate('/cart')}>Buy Now</button>}
                 </div>
                 <img src={HomeBanner} alt="home_banner" />
             </div>
