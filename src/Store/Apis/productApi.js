@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const getAllProducts = createAsyncThunk('getAllProducts', async ({ type, brand, color, price, sortOption }, { rejectWithValue }) => {
     try {

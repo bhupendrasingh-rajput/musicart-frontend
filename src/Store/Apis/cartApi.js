@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const token = localStorage.getItem('token');
 
@@ -23,6 +23,7 @@ export const addToCart = createAsyncThunk("cart/addToCart", async ({ productId, 
 export const getCartByUserId = createAsyncThunk("cart/getCart", async (_, { rejectWithValue }) => {
     try {
         const requestUrl = `${backendUrl}/cart/get-cart`;
+        console.log(requestUrl);
         axios.defaults.headers.common["Authorization"] = token;
         const response = await axios.get(requestUrl);
         return response.data;
