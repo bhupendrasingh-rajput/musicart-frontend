@@ -66,7 +66,7 @@ const MyCart = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                             </div>
                         ))}
 
-                        {cart?.products?.map((prod, index) => (
+                        {mobileView && cart?.products?.map((prod, index) => (
                             <div className={style.cartProduct} key={index}>
                                 <img src={prod.image} alt="product_image" />
                                 <div className={style.detailsRow}>
