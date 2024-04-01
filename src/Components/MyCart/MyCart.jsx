@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './MyCart.module.css';
 import BrandHeader from '../BrandHeader/BrandHeader';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { quantityOptions } from '../../Utils/Options';
 import { quantitySelectStyles } from '../../Utils/CustomStyle';
 import Bag from '../../Assets/Icons/Bag.png'
@@ -39,7 +39,7 @@ const MyCart = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                     <div className={style.leftUpper}>
                         {!mobileView && cart?.products?.map((prod, index) => (
                             <div className={style.cartProduct} key={index}>
-                                <img src={prod.image} alt="product-image" />
+                                <img src={prod.image} alt="product_image" />
                                 <div className={style.detailsColumn}>
                                     <h4>{prod?.name}</h4>
                                     <p>Color - {prod?.color}</p>
@@ -68,7 +68,7 @@ const MyCart = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
 
                         {cart?.products?.map((prod, index) => (
                             <div className={style.cartProduct} key={index}>
-                                <img src={prod.image} alt="product-image" />
+                                <img src={prod.image} alt="product_image" />
                                 <div className={style.detailsRow}>
                                     <p>{prod?.name}</p>
                                     <h4>₹{prod?.price}</h4>
@@ -85,16 +85,16 @@ const MyCart = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                             </div>
                             <div>
                                 <p>Total :</p>
-                                <p>₹{cart?.totalPrice + 45}</p>
+                                <p>₹{(cart?.totalPrice + 45) || 0}</p>
                             </div>
                         </div>}
                     </div>
                     {!mobileView && <div className={style.leftLower}>
                         <span className={style.totalItems}>{cart?.products?.length || 'No'} Items</span>
-                        <span className={style.totalPrice}>₹{cart?.totalPrice}</span>
+                        <span className={style.totalPrice}>₹{(cart?.totalPrice) || 0}</span>
                     </div>}
                     {mobileView && <div className={style.leftLower}>
-                        <span>Total Amount <b>₹{cart?.totalPrice + 45}</b></span>
+                        <span>Total Amount <b>₹{(cart?.totalPrice + 45) || 0}</b></span>
                         <button onClick={() => { navigate('/checkout') }}>PLACE ORDER</button>
                     </div>}
                 </div>

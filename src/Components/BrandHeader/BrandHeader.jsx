@@ -16,7 +16,7 @@ const BrandHeader = ({ isAuthenticated, setIsAuthenticated, productName }) => {
                 {isAuthenticated &&
                     <span>
                         <span onClick={() => { navigate('/') }}>Home</span>
-                        {location.pathname === '/' ? <span>Invoice</span> : null}
+                        {location.pathname === '/' ? <span onClick={()=>{navigate('/invoices')}}>Invoice</span> : null}
                         {location.pathname.startsWith('/product') && productName && <span>/{productName}</span>}
                         {location.pathname.startsWith('/cart') && <span>/ View Cart</span>}
                         {location.pathname.startsWith('/checkout') && <span>/ Checkout</span>}

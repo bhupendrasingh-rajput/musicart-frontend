@@ -12,7 +12,6 @@
 }
 
 .buttonRow {
-    /* border: 1px solid red; */
     height: 8vh;
     padding: 1vh 0;
     display: flex;
@@ -33,7 +32,6 @@
     }
 }
 .invoiceHeading {
-    /* border: 1px solid red; */
     min-height: 15vh;
     margin-bottom: 3vh;
     display: grid;
@@ -43,7 +41,6 @@
 }
 
 .invoicesContainer {
-    /* border: 1px solid red; */
     padding: 3vh 0;
     min-height: fit-content;
     margin-bottom: 5vh;
@@ -59,7 +56,6 @@
     justify-content: space-between;
 
     div {
-        /* border: 1px solid red; */
         min-height: fit-content;
         min-width: 30vw;
         display: flex;
@@ -120,7 +116,7 @@
     }
 
     .invoiceHeading {
-        min-height: 10vh;
+        min-height: 6vh;
         margin-bottom: 0vh;
         display: flex;
         align-items: center;

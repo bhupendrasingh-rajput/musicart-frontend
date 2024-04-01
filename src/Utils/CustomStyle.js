@@ -76,7 +76,7 @@ export const feedBackStyle = {
         border: "none",
         backgroundColor: "#F3F3F3",
         fontSize: '1.7vh',
-        borderRadius: '0.5rem',
+        borderRadius: '2vh',
         textAlign: 'left',
         boxShadow: null,
         display: 'flex',
@@ -194,34 +194,33 @@ export const paymentSelectStyles = {
 }
 
 
-//For Mobile view
-
 export const selectStylesMobile = {
     container: (prev) => ({
         ...prev,
-        // height: '100%',
-        border:'1px solid black'
+        height: '5vh',
+        minWidth: 'fit-content',
     }),
     indicatorsContainer: (prev) => ({ ...prev, display: 'none' }),
     placeholder: (prev) => ({
         ...prev,
         fontWeight: '500',
-        fontSize:'2vh',
-        color: '#000000',
+        color: '#000000'
     }),
     control: (prev, state) => ({
         ...prev,
-        height: '4vh',
+        minHeight: '2vh',
         border: "none",
         backgroundColor: "#D9D9D9",
-        fontSize: '2vh',
         borderRadius: '1vh',
         textAlign: 'center',
         boxShadow: state.isFocused ? null : null,
+        height: '100%',
+        width: '35vw',
+        fontSize: '1.5vh',
     }),
     option: (prev, state) => ({
         ...prev,
         backgroundColor: state.isSelected ? '#0066FF' : null,
-        fontSize: 'small'
-    })
+        fontSize: '1.5vh',
+    }),
 }

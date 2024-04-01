@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import style from './Header.module.css'
 import Phone from '../../Assets/Icons/Phone.png'
 import { useLocation, useNavigate } from 'react-router-dom'

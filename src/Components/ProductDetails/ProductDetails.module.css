@@ -1,5 +1,4 @@
 .mainContainer {
-    /* border: 3px solid red; */
     padding: 3vh 3vw;
     height: 87vh;
     display: flex;
@@ -13,7 +12,6 @@
 }
 
 .buttonRow {
-    /* border: 1px solid red; */
     padding: 1vh 0;
     display: flex;
     align-items: center;
@@ -31,7 +29,6 @@
 }
 
 .productfeatures {
-    /* border: 1px solid red; */
     padding: 1vh 0;
     font-size: 2.5vh;
     line-height: 3vh;
@@ -39,12 +36,10 @@
 }
 
 .productDetails {
-    /* border: 1px solid red; */
     display: flex;
 }
 
 .imageContainer {
-    /* position: relative; */
     border: 5px solid #2E0052;
     border-radius: 1rem;
     width: 55%;
@@ -61,7 +56,6 @@
 }
 
 .details {
-    /* border: 1px solid rgb(29, 8, 57); */
     width: 45%;
     aspect-ratio: 1;
     padding: 3vh 2vw;
@@ -76,7 +70,6 @@
 }
 
 .reviewRow {
-    /* border: 1px solid red; */
     height: 4vh;
     display: flex;
     align-items: center;
@@ -95,7 +88,6 @@
 }
 
 .priceRow {
-    /* border: 1px solid red; */
     font-size: 3vh;
     font-weight: 500;
 
@@ -105,9 +97,7 @@
 }
 
 .colorAndType {
-    /* border: 1px solid red; */
     font-size: 3vh;
-    /* font-weight: 500; */
 }
 
 .description {
@@ -121,12 +111,10 @@
 }
 
 .bottomRow {
-    /* border: 1px solid red; */
     display: flex;
 }
 
 .subImageContainer {
-    /* border: 1px solid green; */
     height: 30vh;
     width: 55%;
     padding: 2vh 0;
@@ -150,7 +138,6 @@
 }
 
 .buttonContainer {
-    /* border: 1px solid red; */
     width: 45%;
     padding: 2vh 2vw;
     display: flex;

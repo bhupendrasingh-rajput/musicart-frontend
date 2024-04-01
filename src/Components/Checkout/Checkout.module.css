@@ -270,13 +270,15 @@
 
 @media (max-width: 768px) {
     .checkout {
-        /* border: 3px solid red; */
-        height: 83vh;
+        padding: 0;
+        min-height: 92vh;
         width: 100vw;
     }
 
     .buttonRow {
+        margin-top: 1vh;
         padding: 0;
+        padding-inline: 3vw;
 
         button {
             height: 5vh;
@@ -290,24 +292,22 @@
     }
 
     .checkoutRow {
-        /* border: 1px solid red; */
+        padding-inline: 3vw;
         display: flex;
         text-decoration: none;
     }
 
     .checkoutBox {
-        /* border: 1px solid red; */
+        padding-inline: 3vw;
         margin-bottom: 0vh;
         flex-direction: column;
     }
 
     .leftContainer {
-        /* border: 1px solid black; */
         width: 100%;
     }
 
     #commonRow {
-        /* border: 2px solid rgb(0, 0, 0); */
         flex-direction: column;
         justify-content: end;
         height: fit-content;
@@ -315,7 +315,6 @@
 
 
     .boxContainer {
-        /* border: 2px solid rgb(0, 0, 0); */
         min-height: fit-content;
         row-gap: 2vh;
 
@@ -353,7 +352,6 @@
     }
 
     .imagesContainer {
-        /* border: 2px solid red; */
         width: 80%;
         margin-left: 5vw;
     }

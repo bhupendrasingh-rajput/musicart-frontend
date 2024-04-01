@@ -17,7 +17,6 @@ const InvoicePage = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    console.log(mobileView)
     return (
         <div>
             {!mobileView && <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}

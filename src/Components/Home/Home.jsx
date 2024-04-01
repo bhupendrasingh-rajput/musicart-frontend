@@ -13,8 +13,8 @@ import Feedback from '../Feedback/Feedback';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts } from '../../Store/Apis/productApi';
 import BrandHeader from '../BrandHeader/BrandHeader';
-import { useNavigate } from 'react-router-dom';
-import { addToCart, getCartByUserId } from '../../Store/Apis/cartApi';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { addToCart } from '../../Store/Apis/cartApi';
 
 const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
     const [displayType, setDisplayType] = useState('grid');
@@ -24,12 +24,18 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const location = useLocation();
     const products = useSelector(state => state?.products);
-    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
+    const filteredProducts = searchQuery
+        ? products.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        : products;
+
 
     const handleDisplayType = (type) => {
         setDisplayType(type);
     }
+
 
     const handleFilter = (name, value) => {
         setFilters({ ...filters, [name]: value });
@@ -39,6 +45,16 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
         setSortingLabel(selectedOption ? selectedOption.label : null);
         setSortOption(selectedOption ? selectedOption.value : null);
     }
+
+    useEffect(() => {
+        const { state } = location;
+        if (state && state.search) {
+            setSearchQuery(state.search);
+        } else {
+            setSearchQuery('');
+        }
+    }, [location]);
+
 
     const handleSearch = (event) => {
         setSearchQuery(event.target.value);
@@ -63,27 +79,42 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                     <p>Selected headphones</p>
                     {mobileView && <button>Buy Now</button>}
                 </div>
-                <img src={HomeBanner} alt="home-banner" />
+                <img src={HomeBanner} alt="home_banner" />
             </div>
 
             <div className={style.searchContainer}>
                 {!mobileView &&
                     <div className={style.searchBox}>
-                        <img src={Search} alt="search-icon" />
+                        <img src={Search} alt="search_icon" />
                         <input type="text" name="search" placeholder='Search by Product Name' onChange={handleSearch} />
                     </div>
                 }
                 <div className={style.searchBottom}>
                     {!mobileView &&
                         <div className={style.displayIcons}>
-                            <img id={style.grid} src={Grid} alt="grid-icon" onClick={() => handleDisplayType('grid')} />
-                            <img id={style.list} src={List} alt="list-icon" onClick={() => handleDisplayType('list')} />
+                            <img id={style.grid} src={Grid} alt="grid_icon" onClick={() => handleDisplayType('grid')} />
+                            <img id={style.list} src={List} alt="list_icon" onClick={() => handleDisplayType('list')} />
+                        </div>
+                    }
+                    {mobileView &&
+                        <div className={style.sortingBox}>
+                            <Select
+                                placeholder={`Sort by : ${sortingLabel} ⌵`}
+                                value={`Sort by: `}
+                                menuPortalTarget={document.body}
+                                isSearchable={false}
+                                options={sortingOptions}
+                                styles={sortingStyle}
+                                onChange={(selectedOption) => handleSorting(selectedOption)}
+                            />
                         </div>
                     }
                     <div className={style.filterBox}>
                         <Select
                             name="type"
                             placeholder={"Headphone type ⌵"}
+                            menuPortalTarget={document.body}
+                            isSearchable={false}
                             options={typeOptions}
                             styles={mobileView ? selectStylesMobile : selectStyles}
                             onChange={(selectedOption) => handleFilter('type', selectedOption ? selectedOption.value : null)}
@@ -91,6 +122,8 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                         <Select
                             name="brand"
                             placeholder="Company ⌵"
+                            menuPortalTarget={document.body}
+                            isSearchable={false}
                             options={companyOptions}
                             styles={mobileView ? selectStylesMobile : selectStyles}
                             onChange={(selectedOption) => handleFilter('brand', selectedOption ? selectedOption.value : null)}
@@ -98,6 +131,8 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                         <Select
                             name="color"
                             placeholder="Colour ⌵"
+                            menuPortalTarget={document.body}
+                            isSearchable={false}
                             options={colourOptions}
                             styles={mobileView ? selectStylesMobile : selectStyles}
                             onChange={(selectedOption) => handleFilter('color', selectedOption ? selectedOption.value : null)}
@@ -105,20 +140,26 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                         <Select
                             name="price"
                             placeholder="Price ⌵"
+                            menuPortalTarget={document.body}
+                            isSearchable={false}
                             options={priceOptions}
                             styles={mobileView ? selectStylesMobile : selectStyles}
                             onChange={(selectedOption) => handleFilter('price', selectedOption ? selectedOption.value : null)}
                         />
                     </div>
-                    <div className={style.sortingBox}>
-                        <Select
-                            placeholder={`Sort by : ${sortingLabel} ⌵`}
-                            value={`Sort by: `}
-                            options={sortingOptions}
-                            styles={sortingStyle}
-                            onChange={(selectedOption) => handleSorting(selectedOption)}
-                        />
-                    </div>
+                    {!mobileView &&
+                        <div className={style.sortingBox}>
+                            <Select
+                                placeholder={`Sort by : ${sortingLabel} ⌵`}
+                                value={`Sort by: `}
+                                menuPortalTarget={document.body}
+                                isSearchable={false}
+                                options={sortingOptions}
+                                styles={sortingStyle}
+                                onChange={(selectedOption) => handleSorting(selectedOption)}
+                            />
+                        </div>
+                    }
                 </div>
             </div>
             {mobileView && <hr />}
@@ -127,10 +168,10 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                     {filteredProducts.map((product, index) => (
                         <div className={style.gridBox} key={index}>
                             <div className={style.imageContainer} onClick={() => { navigate(`/product/${product?._id}`) }}>
-                                <img src={product?.images[0]} alt="product-image" className={style.productImage} />
+                                <img src={product?.images[0]} alt="product_image" className={style.productImage} />
                                 {isAuthenticated &&
                                     <div className={style.addToCartButtonGrid}>
-                                        <img src={AddtoCart} alt="cart-icon" className={style.cartIcon}
+                                        <img src={AddtoCart} alt="cart_icon" className={style.cartIcon}
                                             onClick={(event) => { handleAddToCart(product?._id, product?.name, product?.color, product?.images[0], product?.price, event) }} />
                                     </div>
                                 }
@@ -148,10 +189,10 @@ const Home = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
                     {filteredProducts.map((product, index) => (
                         <div className={style.listBox} key={index}>
                             <div className={style.imageContainer} >
-                                <img src={product?.images[0]} alt="product-image" className={style.productImage} />
+                                <img src={product?.images[0]} alt="product_image" className={style.productImage} />
                                 {isAuthenticated &&
                                     <div className={style.addToCartButtonList}>
-                                        <img src={AddtoCart} alt="cart-icon" className={style.cartIcon}
+                                        <img src={AddtoCart} alt="cart_icon" className={style.cartIcon}
                                             onClick={(event) => { handleAddToCart(product?._id, product?.name, product?.color, product?.images[0], product?.price, event) }} />
                                     </div>
                                 }

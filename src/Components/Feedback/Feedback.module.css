@@ -17,13 +17,11 @@
 }
 
 .feedbackPopup {
-    /* border: 1px solid red; */
     position: fixed;
     bottom: 19vh;
     right: 2vw;
     width: 17vw;
     height: 36vh;
-    /* aspect-ratio: 1; */
     border-radius: 1rem;
     padding: 2vh;
     background-color: #FFFFFF;
@@ -31,12 +29,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
     text-align: left;
 }
 
 .feedbackType {
-    /* border: 1px solid red; */
     width: 100%;
     height: 30%;
 }

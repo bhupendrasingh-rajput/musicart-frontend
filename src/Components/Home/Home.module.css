@@ -1,5 +1,4 @@
 .home {
-    /* border: 1px solid red; */
     padding: 3vh 3vw;
     height: 87vh;
     display: flex;
@@ -13,7 +12,6 @@
 }
 
 .gradientBox {
-    /* border: 1px solid red; */
     margin-top: 1vh;
     height: 20vh;
     background: linear-gradient(90deg, #7286B4 0%, #E794CE 100%);
@@ -24,7 +22,6 @@
     align-items: center;
 
     p {
-        /* border: 1px solid red; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -34,7 +31,7 @@
     }
 
     img {
-        /* border: 1px solid red; */
+
         position: sticky;
         height: 23vh;
         aspect-ratio: 4/3;
@@ -43,7 +40,6 @@
 }
 
 .searchContainer {
-    /* border: 1px solid red; */
     height: 15vh;
     padding: 1vh 0;
     display: flex;
@@ -73,14 +69,12 @@
 }
 
 .searchBottom {
-    /* border: 1px solid red; */
     height: 5vh;
     display: flex;
     align-items: center;
 }
 
 .displayIcons {
-    /* border: 1px solid black; */
     width: 10%;
     height: 100%;
     display: flex;
@@ -103,7 +97,6 @@
 }
 
 .filterBox {
-    /* border: 1px solid black; */
     height: 100%;
     width: 80%;
     display: flex;
@@ -118,7 +111,6 @@
 /* styles for product displaying */
 
 .gridView {
-    /* border: 1px solid red; */
     display: grid;
     justify-content: space-between;
     row-gap: 2vh;
@@ -126,19 +118,16 @@
 }
 
 .listView {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
 }
 
 .gridBox {
-    border: 1px solid black;
     aspect-ratio: 3/4;
 }
 
 .listBox {
-    /* border: 1px solid black; */
     width: 100%;
     height: 35vh;
     display: flex;
@@ -173,20 +162,17 @@
 }
 
 .gridDetailsContainer {
-    /* border: 1px solid red; */
     padding: 1vh 1vw;
     height: 30%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     row-gap: 1vh;
     font-weight: 500;
     font-size: 2vh;
 }
 
 .listDetailsContainer {
-    /* border: 2px solid red; */
     width: 100%;
     padding: 2vh 2vw;
     display: flex;
@@ -247,7 +233,6 @@
     .home {
         height: 83vh;
         max-width: 100vw;
-        overflow-x: hidden;
 
         hr {
             width: 100%;
@@ -292,14 +277,6 @@
         }
     }
 
-    .searchContainer {
-        border: 1px solid red;
-        height: 5vh;
-        flex-direction: row-reverse;
-        column-gap: 5vw;
-        overflow-x: auto;
-    }
-
     .searchContainer::-webkit-scrollbar {
         display: none;
     }
@@ -330,5 +307,22 @@
         height: 4vh;
         bottom: 1vh;
         left: 34vw;
+    }
+
+    .searchBottom {
+        gap: 2vw;
+        min-height: 6vh;
+        width: 100%;
+        overflow-x: scroll;
+
+        display: grid;
+        flex-direction: row-reverse;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+
+    }
+
+    .searchBottom::-webkit-scrollbar {
+        display: none;
     }
 }

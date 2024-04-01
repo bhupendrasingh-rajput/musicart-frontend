@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import BrandHeader from '../../Components/BrandHeader/BrandHeader';
 import Footer from '../../Components/Footer/Footer';
 import Order from '../../Components/Order/Order';
 import MobileFooter from '../../Components/Footer/MobileFooter'

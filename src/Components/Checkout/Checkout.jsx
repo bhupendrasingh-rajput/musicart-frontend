@@ -8,6 +8,7 @@ import { paymentSelectStyles } from '../../Utils/CustomStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCart, getCartByUserId } from '../../Store/Apis/cartApi';
 import { addinvoice, fetchInvoiceById } from '../../Store/Apis/invoiceApi';
+import MobileBrandHeader from '../BrandHeader/MobileBrandHeader';
 
 
 const Checkout = ({ isAuthenticated, setIsAuthenticated, invoiceId, mobileView }) => {
@@ -75,7 +76,7 @@ const Checkout = ({ isAuthenticated, setIsAuthenticated, invoiceId, mobileView }
 
     useEffect(() => {
         if (invoiceId && invoice) {
-            const { userName, address, paymentMode, products, totalPrice } = invoice;
+            const { userName, address, paymentMode, products } = invoice;
             setUserName(userName);
             setAddress(address);
             setPaymentMode(paymentMode);
@@ -88,13 +89,11 @@ const Checkout = ({ isAuthenticated, setIsAuthenticated, invoiceId, mobileView }
 
     return (
         <div className={style.checkout}>
-            {!mobileView && <BrandHeader isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}
-            {mobileView && invoiceId && invoice ? 
-            <></>:<></>}
+            {!mobileView ? <BrandHeader isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} /> :
+                <MobileBrandHeader />}
             <div className={style.buttonRow}>
-                {mobileView ?
-                    <button onClick={() => { navigate(-1) }}>🡨</button> :
-                    <button onClick={() => { navigate('/') }}>Back to products</button>
+                {mobileView &&
+                    <button onClick={() => { navigate(-1) }}>🡨</button>
                 }
             </div>
             {!mobileView && <div className={style.buttonRow}>
@@ -143,11 +142,11 @@ const Checkout = ({ isAuthenticated, setIsAuthenticated, invoiceId, mobileView }
                         <div className={style.boxContainer}>
                             <div className={style.imagesContainer}>
                                 {(invoiceId && invoiceProducts) ? invoiceProducts.map((product, index) => (
-                                    <img src={product?.image} alt="product-image" key={index} className={style.img}
+                                    <img src={product?.image} alt="product_image" key={index} className={style.img}
                                         onClick={() => { handleProductClick(product) }}
                                     />
                                 )) : cart?.products?.map((product, index) => (
-                                    <img src={product?.image} alt="product-image" key={index} className={style.img}
+                                    <img src={product?.image} alt="product_image" key={index} className={style.img}
                                         onClick={() => { handleProductClick(product) }}
                                     />
                                 ))}

@@ -13,7 +13,6 @@ const Invoices = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const invoices = useSelector(state => state?.invoice);
-    console.log(mobileView);
 
     const handleGetInvoice = (invoiceId) => {
         navigate(`/invoice/${invoiceId}`)
@@ -27,11 +26,12 @@ const Invoices = ({ isAuthenticated, setIsAuthenticated, mobileView }) => {
             }
             <div className={style.buttonRow}>
                 {mobileView ?
-                    <button onClick={() => { navigate(-1) }}>🡨</button> : <button onClick={() => { navigate('/') }}>Back to products</button>
+                    <button onClick={() => { navigate(-1) }}>🡨</button> : 
+                    <button onClick={() => { navigate('/') }}>Back to Home</button>
                 }
             </div>
             <div className={style.invoiceHeading}>
-                {mobileView && <img src={BlackInvoice}/>}My Invoices
+                {mobileView && <img src={BlackInvoice} alt='black_invoice'/>}My Invoices
             </div>
             <div className={style.invoicesContainer}>
                 {invoices?.allInvoices?.map((invoice, index) => (

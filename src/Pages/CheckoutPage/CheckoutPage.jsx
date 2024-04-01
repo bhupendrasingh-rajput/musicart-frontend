@@ -5,6 +5,7 @@ import BrandHeader from '../../Components/BrandHeader/BrandHeader';
 import Checkout from '../../Components/Checkout/Checkout';
 import MobileHeader from '../../Components/Header/MobileHeader';
 import MobileFooter from '../../Components/Footer/MobileFooter';
+import { useLocation } from 'react-router-dom';
 
 
 const CheckoutPage = () => {
@@ -22,9 +23,9 @@ const CheckoutPage = () => {
     }, []);
     return (
         <div>
-            {mobileView ? <MobileHeader /> : <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}
-            <Checkout isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} mobileView={mobileView}/>
-            {mobileView ? <MobileFooter/> : <Footer />}
+            {!mobileView && <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />}
+            <Checkout isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} mobileView={mobileView} />
+            {mobileView ? <MobileFooter /> : <Footer />}
         </div>
     )
 }
