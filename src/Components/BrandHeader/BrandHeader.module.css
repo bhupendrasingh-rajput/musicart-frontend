@@ -1,0 +1,27 @@
+.brandRow {
+    /* border: 1px solid green; */
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 3vh;
+    color: #2E0052;
+    column-gap: 0.5vw;
+}
+
+.leftBrandRow {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5vw;
+
+    img {
+        height: 6vh;
+    }
+
+    span {
+        font-size: small;
+        margin-right: 0.5vw;
+        cursor: pointer;
+    }
+}

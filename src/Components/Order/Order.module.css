@@ -1,0 +1,89 @@
+.order {
+    padding: 3vh 3vw 0 3vw;
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderContainer {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.orderBox {
+    height: 50vh;
+    width: 45vw;
+    border: 3px solid #E3E3E3;
+    box-shadow: 14px 16px 23px 2px #0000001C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2vh;
+
+    img {
+        height: 12vh;
+        aspect-ratio: 1;
+        object-fit: cover;
+        margin-bottom: 2vh;
+    }
+
+    span {
+        font-size: 3.4vh;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 2.5vh;
+        font-weight: 500;
+        color: #969696;
+    }
+
+    button {
+        margin-top: 2vh;
+        width: 25vw;
+        height: 6vh;
+        background-color: #2E0052;
+        border: none;
+        outline: none;
+        border-radius: 1vh;
+        font-size: 2.5vh;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+/* Styling for mobile view */
+
+@media (max-width: 768px) {
+    .order {
+        padding: 0;
+        height: 92vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .orderBox {
+        padding-inline:3vw;
+        width: 85vw;
+        height: 50vh;
+        border-radius: 2vh;
+        row-gap: 1.5vh;
+    
+        span {
+            font-size: 2.5vh;
+        }
+    
+        p {
+            text-align: center;
+            font-size: 2vh;
+        }
+    
+        button {
+            width: 100%;
+            font-size: 2vh;
+        }
+    }
+}

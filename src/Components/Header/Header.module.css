@@ -1,0 +1,41 @@
+.header{
+    width: 100vw;
+    height: 6vh;
+    background-color: #2E0052;
+    color: white;
+    padding-inline: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: small;
+}
+
+.leftSection{
+    width: 15%;
+    display: flex;
+    column-gap: 0.5vw;
+    img{
+        height: 3vh;
+    }
+}
+
+.middleSection{
+    /* border: 1px solid red; */
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    column-gap: 1vw;
+}
+
+.rightSection{
+    /* border: 1px solid red; */
+    width: 15%;
+    display: flex;
+    justify-content: end;
+    column-gap: 1vw;
+
+    span{
+        display: flex;
+        cursor: pointer;
+    }
+}

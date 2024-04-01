@@ -1,0 +1,10 @@
+.footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    height: 6vh;
+    display: grid;
+    place-items: center;
+    background-color: #2E0052;
+    color: white;
+}
