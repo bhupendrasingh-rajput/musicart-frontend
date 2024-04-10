@@ -9,8 +9,8 @@ export const addToCart = createAsyncThunk("cart/addToCart", async ({ productId, 
     try {
         const requestUrl = `${backendUrl}/cart/add-product`;
         const reqPayload = { productId, name, color, image, price, quantity };
-        axios.defaults.headers.common["Authorization"] = token;
-        const response = await axios.post(requestUrl, reqPayload);
+        // axios.defaults.headers.common["Authorization"] = token;
+        const response = await axios.post(requestUrl, reqPayload, headers:{ Authorization:token });
         toast.success(response.data.message);
         return response.data.response;
     } catch (error) {
